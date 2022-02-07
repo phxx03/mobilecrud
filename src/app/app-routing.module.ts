@@ -8,8 +8,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'avatarpg',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'loginresult/:dataobj',
+    loadChildren: () => import('./loginresult/loginresult.module').then( m => m.LoginresultPageModule)
+  },
+  {
+    path: 'avatarpg',
+    loadChildren: () => import('./avatarpg/avatarpg.module').then( m => m.AvatarpgPageModule)
+  },
+  {
+    path: 'dbhome',
+    loadChildren: () => import('./dbhome/dbhome.module').then( m => m.DbhomePageModule)
   },
 ];
 

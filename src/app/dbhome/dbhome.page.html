@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dbhome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="presentPrompAdd()" expand="full" color="secondary" icon-start>
+    <ion-icon name="add" ></ion-icon>
+      Create
+  </ion-button>
+  <ion-list>
+    <ion-list-header>
+      Ionic List Example
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let tmp of this.stdobj">
+      <ion-item  >
+        <ion-label>
+          <h2>
+            {{tmp.getname}}
+          </h2>
+          <p>
+            {{tmp.getage}}
+          </p>
+          <p>
+            {{tmp.getddress}}
+          </p>
+        </ion-label>
+      </ion-item>
+        <ion-item-options>
+  
+          <ion-button color="danger" (click)="presentConfirmDelete(tmp.getid)">
+            <ion-icon name="trash"></ion-icon> Delete</ion-button>
+          <!--<ion-button color="primary" (click)="presentPromptEdit(tmp.id, tmp.name, tmp.address, tmp.age)">
+            <ion-icon name="create-outline"></ion-icon> Edit</ion-button>-->
+            <ion-button color="primary" (click)="presentPromptEdit(tmp)">
+              <ion-icon name="create-outline"></ion-icon> Edit</ion-button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>
