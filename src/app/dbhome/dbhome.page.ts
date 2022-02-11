@@ -98,22 +98,19 @@ export class DbhomePage implements OnInit {
       async presentPromptEdit(tmpobj) {
         const alert = this.alertCtrl.create({
           subHeader: 'Edit',
-          message: 'Now you are editing '+name,
+          message: 'Now you are editing ' + tmpobj.getname,
           inputs: [
             {
               name: 'name',
-              placeholder: tmpobj.name,
-              value: tmpobj.name
+              placeholder: tmpobj.getname
             },
             {
               name: 'age',
-              placeholder:tmpobj.age,
-              value: tmpobj.age
+              placeholder:tmpobj.getage
             },
             {
               name: 'address',
-              placeholder: tmpobj.address,
-              value: tmpobj.address
+              placeholder: tmpobj.getaddress
             }
           ],
           buttons: [
@@ -128,12 +125,12 @@ export class DbhomePage implements OnInit {
               text: 'Update',
               handler: data => {
                 const updatedata = {};
-                 updatedata['sname'.toString()] = data.name;
-                 updatedata['age'.toString()] = data.age;
-                 updatedata['address'.toString()] = data.address;
-                 ///this.ngFirestore.doc('/Student/'+id).update(updatedata);
-                 this.apiservice.updateUser(tmpobj.id, updatedata);
-                 console.log(updatedata);
+                updatedata['sname'.toString()] = data.name;
+                updatedata['age'.toString()] = data.age;
+                updatedata['address'.toString()] = data.address;
+                ///this.ngFirestore.doc('/Student/'+id).update(updatedata);
+                this.apiservice.updateUser(tmpobj.getid, updatedata);
+                console.log(updatedata);
               }
             }
           ]

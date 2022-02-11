@@ -48,8 +48,8 @@ export class StudentService {
   deleteUser(delid) {
     return this.ngFirestore.doc('student/'+delid).delete();
   }
-  updateUser(id, updatedata: any) {
-    return this.ngFirestore.doc('student/'+id).update(updatedata);
+  updateUser(getid, updatedata: any) {
+    return this.ngFirestore.doc('student/'+getid).update(updatedata);
   }
   
 }
